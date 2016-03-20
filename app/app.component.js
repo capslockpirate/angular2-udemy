@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', "./like.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, like_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (like_component_1_1) {
+                like_component_1 = like_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -24,7 +27,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>My First Angular 2 App</h1>'
+                        template: '<div class="wrapper"><like></like></div>',
+                        directives: [like_component_1.LikeComponent],
+                        styles: ["\n      .wrapper {padding: 30px;}\n    "]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
