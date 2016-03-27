@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/common', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/common', "rxjs/Rx", 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/map'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/add/operator/debounce
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1;
+    var core_1, common_1, Rx_1;
     var AppComponent;
     return {
         setters:[
@@ -17,6 +17,9 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/add/operator/debounce
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (Rx_1_1) {
+                Rx_1 = Rx_1_1;
             },
             function (_1) {},
             function (_2) {}],
@@ -76,6 +79,9 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/add/operator/debounce
                     //     .map(joined =>
                     //         new Object({user: joined[0], tweets: joined[1] }))
                     //     .subscribe(result => console.log(result));
+                    //handling errors
+                    var observable = Rx_1.Observable.throw(new Error('something failed.'));
+                    observable.subscribe(function (x) { return console.log(x); }, function (error) { return console.error(error); });
                 }
                 AppComponent = __decorate([
                     core_1.Component({

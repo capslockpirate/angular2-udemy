@@ -76,8 +76,15 @@ export class AppComponent {
         //     .map(joined =>
         //         new Object({user: joined[0], tweets: joined[1] }))
         //     .subscribe(result => console.log(result));
-        
-        
-        
+
+
+        //handling errors
+
+        var observable = Observable.throw(new Error('something failed.'));
+
+        observable.subscribe(
+            x => console.log(x),
+            error => console.error(error)
+        );
     }
 }
