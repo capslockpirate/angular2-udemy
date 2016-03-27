@@ -80,8 +80,41 @@ System.register(['angular2/core', 'angular2/common', "rxjs/Rx", 'rxjs/add/operat
                     //         new Object({user: joined[0], tweets: joined[1] }))
                     //     .subscribe(result => console.log(result));
                     //handling errors
-                    var observable = Rx_1.Observable.throw(new Error('something failed.'));
-                    observable.subscribe(function (x) { return console.log(x); }, function (error) { return console.error(error); });
+                    // var observable = Observable.throw(new Error('something failed.'));
+                    //
+                    // observable.subscribe(
+                    //     x => console.log(x),
+                    //     error => console.error(error)
+                    // );
+                    //retrying
+                    // var counter = 0;
+                    //
+                    // var ajaxCall = Observable.of('url')
+                    //     .flatMap(() => {
+                    //         if (++counter < 2)
+                    //             return Observable.throw(new Error('request failed'));
+                    //
+                    //         return Observable.of([1, 2, 3]);
+                    //     });
+                    // ajaxCall
+                    //     .retry(3)
+                    //     .subscribe(
+                    //         x => console.log(x),
+                    //         error => console.log(error)
+                    //     );
+                    // var remoteDataStream = Observable.of([4, 5, 6]);
+                    //
+                    // remoteDataStream
+                    //     .catch(err => {
+                    //         var localDataStream = Observable.of([1, 22, 333]);
+                    //         return localDataStream;
+                    //     })
+                    //     .subscribe(x => console.log(x));
+                    //
+                    var remoteDataStream = Rx_1.Observable.of([1, 2, 3]).delay(5000);
+                    remoteDataStream
+                        .timeout(1000)
+                        .subscribe(function (x) { return console.log(x); }, function (error) { return console.log(error); });
                 }
                 AppComponent = __decorate([
                     core_1.Component({

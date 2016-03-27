@@ -4,6 +4,7 @@ import {ControlGroup, FormBuilder} from 'angular2/common';
 import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
+import {error} from "util";
 
 @Component({
     selector: 'my-app',
@@ -80,11 +81,55 @@ export class AppComponent {
 
         //handling errors
 
-        var observable = Observable.throw(new Error('something failed.'));
+        // var observable = Observable.throw(new Error('something failed.'));
+        //
+        // observable.subscribe(
+        //     x => console.log(x),
+        //     error => console.error(error)
+        // );
 
-        observable.subscribe(
-            x => console.log(x),
-            error => console.error(error)
-        );
+
+        //retrying
+
+        // var counter = 0;
+        //
+        // var ajaxCall = Observable.of('url')
+        //     .flatMap(() => {
+        //         if (++counter < 2)
+        //             return Observable.throw(new Error('request failed'));
+        //
+        //         return Observable.of([1, 2, 3]);
+        //     });
+        // ajaxCall
+        //     .retry(3)
+        //     .subscribe(
+        //         x => console.log(x),
+        //         error => console.log(error)
+        //     );
+
+
+
+        // var remoteDataStream = Observable.of([4, 5, 6]);
+        //
+        // remoteDataStream
+        //     .catch(err => {
+        //         var localDataStream = Observable.of([1, 22, 333]);
+        //         return localDataStream;
+        //     })
+        //     .subscribe(x => console.log(x));
+        //
+
+        // var remoteDataStream = Observable.of([1, 2, 3]).delay(5000);
+        //
+        // remoteDataStream
+        //     .timeout(1000)
+        //     .subscribe(
+        //         x => console.log(x),
+        //         error => console.log(error)
+        //     );
+
+            
+        
+        
     }
 }
