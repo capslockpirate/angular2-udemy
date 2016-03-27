@@ -55,20 +55,29 @@ System.register(['angular2/core', 'angular2/common', "rxjs/Rx", 'rxjs/add/operat
                     //         })
                     //         .subscribe(x => console.log(x));
                     // }
-                    var b = 0;
-                    function obsTest(x) {
-                        x
-                            .flatMap(function (x) {
-                            b++;
-                            console.log('calling the server for the latest news');
-                            return Rx_1.Observable.of([1, b, 3]);
-                        })
-                            .subscribe(function (x) { return console.log(x); });
-                    }
+                    // function obsTest(x: Observable) {
+                    //
+                    //     x
+                    //         .flatMap(x => {
+                    //             console.log('calling the server for the latest news')
+                    //             return Observable.of([1, 2, 3]);
+                    //         })
+                    //         .subscribe(x => console.log(x));
+                    // }
                     // obsTest(Observable.of(12));
                     // obsTest(Observable.empty());
                     // obsTest(Observable.range(1, 80));
-                    obsTest(Rx_1.Observable.interval(1000));
+                    // obsTest(Observable.interval(1000));
+                    var userStream = Rx_1.Observable.of({
+                        userId: 1, username: 'mosh'
+                    }).delay(2000);
+                    var tweetStream = Rx_1.Observable.of([1, 2, 3]).delay(1500);
+                    Rx_1.Observable
+                        .forkJoin(userStream, tweetStream)
+                        .map(function (joined) {
+                        return new Object({ user: joined[0], tweets: joined[1] });
+                    })
+                        .subscribe(function (result) { return console.log(result); });
                 }
                 AppComponent = __decorate([
                     core_1.Component({

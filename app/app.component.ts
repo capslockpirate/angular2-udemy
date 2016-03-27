@@ -48,23 +48,36 @@ export class AppComponent {
         //         .subscribe(x => console.log(x));
         // }
 
-        var b = 0;
-        function obsTest(x: Observable) {
 
-            x
-                .flatMap(x => {
-                    b++;
-                    console.log('calling the server for the latest news')
-                    return Observable.of([1, b, 3]);
-                })
-                .subscribe(x => console.log(x));
-        }
+        // function obsTest(x: Observable) {
+        //
+        //     x
+        //         .flatMap(x => {
+        //             console.log('calling the server for the latest news')
+        //             return Observable.of([1, 2, 3]);
+        //         })
+        //         .subscribe(x => console.log(x));
+        // }
         // obsTest(Observable.of(12));
         // obsTest(Observable.empty());
         // obsTest(Observable.range(1, 80));
-        obsTest(Observable.interval(1000));
+        // obsTest(Observable.interval(1000));
 
 
 
+        // var userStream = Observable.of({
+        //     userId: 1, username: 'mosh'
+        // }).delay(2000);
+        //
+        // var tweetStream = Observable.of([1, 2, 3]).delay(1500);
+        //
+        // Observable
+        //     .forkJoin(userStream, tweetStream)
+        //     .map(joined =>
+        //         new Object({user: joined[0], tweets: joined[1] }))
+        //     .subscribe(result => console.log(result));
+        
+        
+        
     }
 }
