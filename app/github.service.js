@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/http", 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -23,15 +23,15 @@ System.register(["angular2/core", "angular2/http", 'rxjs/add/operator/map'], fun
             GitHubService = (function () {
                 function GitHubService(_http) {
                     this._http = _http;
-                    this._baseUrl = 'https://api.github.com/users/';
+                    this._baseUrl = "https://api.github.com/users/";
                 }
                 GitHubService.prototype.getUser = function (username) {
                     return this._http.get(this._baseUrl + username)
-                        .map(function (profile) { return profile.json(); });
+                        .map(function (res) { return res.json(); });
                 };
                 GitHubService.prototype.getFollowers = function (username) {
-                    return this._http.get(this._baseUrl + username + '/followers')
-                        .map(function (followers) { return followers.json(); });
+                    return this._http.get(this._baseUrl + username + "/followers")
+                        .map(function (res) { return res.json(); });
                 };
                 GitHubService = __decorate([
                     core_1.Injectable(), 

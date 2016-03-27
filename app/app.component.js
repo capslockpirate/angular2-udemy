@@ -26,7 +26,7 @@ System.register(['angular2/core', "./github-profile.component"], function(export
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n      <github-profile></github-profile>\n  ",
-                        directives: [github_profile_component_1.GithubProfileComponent]
+                        directives: [github_profile_component_1.GitHubProfileComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

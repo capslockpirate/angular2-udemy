@@ -1,5 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
-import {GithubProfileComponent} from "./github-profile.component";
+import {GitHubProfileComponent} from "./github-profile.component";
 
 
 @Component({
@@ -7,7 +7,7 @@ import {GithubProfileComponent} from "./github-profile.component";
     template: `
       <github-profile></github-profile>
   `,
-    directives: [GithubProfileComponent]
+    directives: [GitHubProfileComponent]
 })
 export class AppComponent {
     
