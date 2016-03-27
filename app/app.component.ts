@@ -118,18 +118,27 @@ export class AppComponent {
         //     })
         //     .subscribe(x => console.log(x));
         //
-
+        //
         // var remoteDataStream = Observable.of([1, 2, 3]).delay(5000);
         //
         // remoteDataStream
         //     .timeout(1000)
         //     .subscribe(
         //         x => console.log(x),
-        //         error => console.log(error)
+        //         error => console.log(error),
+        //         () => console.log("completed")
         //     );
 
-            
-        
-        
+        //    
+        // var observable = Observable.fromArray([1, 2, 3]);
+        //
+        // observable
+        //     .flatMap(x => Observable.of(['a', 'b', 'c']))
+        //     .subscribe(x => console.log(x));
+        //
+        // Observable.forkJoin(
+        //     Observable.of({ username: 'mosh'}),
+        //     Observable.of([1, 2, 3])
+        // ).subscribe(x => console.log(x[0]));
     }
 }

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/common', "rxjs/Rx", 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/common', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/map'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/common', "rxjs/Rx", 'rxjs/add/operat
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, Rx_1;
+    var core_1, common_1;
     var AppComponent;
     return {
         setters:[
@@ -17,9 +17,6 @@ System.register(['angular2/core', 'angular2/common', "rxjs/Rx", 'rxjs/add/operat
             },
             function (common_1_1) {
                 common_1 = common_1_1;
-            },
-            function (Rx_1_1) {
-                Rx_1 = Rx_1_1;
             },
             function (_1) {},
             function (_2) {}],
@@ -111,10 +108,27 @@ System.register(['angular2/core', 'angular2/common', "rxjs/Rx", 'rxjs/add/operat
                     //     })
                     //     .subscribe(x => console.log(x));
                     //
-                    var remoteDataStream = Rx_1.Observable.of([1, 2, 3]).delay(5000);
-                    remoteDataStream
-                        .timeout(1000)
-                        .subscribe(function (x) { return console.log(x); }, function (error) { return console.log(error); });
+                    //
+                    // var remoteDataStream = Observable.of([1, 2, 3]).delay(5000);
+                    //
+                    // remoteDataStream
+                    //     .timeout(1000)
+                    //     .subscribe(
+                    //         x => console.log(x),
+                    //         error => console.log(error),
+                    //         () => console.log("completed")
+                    //     );
+                    //    
+                    // var observable = Observable.fromArray([1, 2, 3]);
+                    //
+                    // observable
+                    //     .flatMap(x => Observable.of(['a', 'b', 'c']))
+                    //     .subscribe(x => console.log(x));
+                    //
+                    // Observable.forkJoin(
+                    //     Observable.of({ username: 'mosh'}),
+                    //     Observable.of([1, 2, 3])
+                    // ).subscribe(x => console.log(x[0]));
                 }
                 AppComponent = __decorate([
                     core_1.Component({
