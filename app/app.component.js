@@ -25,13 +25,20 @@ System.register(['angular2/core', './post.service', "angular2/http"], function(e
             AppComponent = (function () {
                 function AppComponent(_postService) {
                     this._postService = _postService;
-                    this._postService.getPosts()
-                        .subscribe(function (posts) { return console.log(posts); });
+                    this.isLoading = true;
                 }
+                AppComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    this._postService.getPosts()
+                        .subscribe(function (posts) {
+                        _this.isLoading = false;
+                        console.log(posts[0].id);
+                    });
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n      <h1>This is my first angular app</h1>\n  ",
+                        template: "\n      <div *ngIf=\"isLoading\">\n        <i class=\"fa fa-3x fa-spinner fa-spin\"></i>\n      </div>\n  ",
                         providers: [post_service_1.PostService, http_1.HTTP_PROVIDERS]
                     }), 
                     __metadata('design:paramtypes', [post_service_1.PostService])
