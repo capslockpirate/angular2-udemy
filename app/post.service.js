@@ -1,4 +1,4 @@
-System.register(['angular2/http', 'rxjs/add/operator/map', 'angular2/core'], function(exports_1) {
+System.register(['angular2/http', 'rxjs/add/operator/map', 'rxjs/add/operator/toPromise', 'angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16,10 +16,12 @@ System.register(['angular2/http', 'rxjs/add/operator/map', 'angular2/core'], fun
                 http_1 = http_1_1;
             },
             function (_1) {},
+            function (_2) {},
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
+            // import {Observable} from "rxjs/Observable";
             PostService = (function () {
                 function PostService(_http) {
                     this._http = _http;
@@ -27,7 +29,8 @@ System.register(['angular2/http', 'rxjs/add/operator/map', 'angular2/core'], fun
                 }
                 PostService.prototype.getPosts = function () {
                     return this._http.get(this._url)
-                        .map(function (res) { return res.json(); });
+                        .map(function (res) { return res.json(); })
+                        .toPromise();
                 };
                 PostService.prototype.createPost = function (post) {
                     this._http.post(this._url, JSON.stringify(post))
